@@ -1,6 +1,6 @@
 from pathlib import Path
 import httpx,json,re,streamlit as st
-LEVEL=int(Path(__file__).resolve().parent.parent.name.removeprefix("TD"))
+LEVEL=1
 TOPIC="Utilisation des LLM pour assister le screening des SLR en génie logiciel"
 NAMES=["Appel LLM","Plan Pydantic","SearchAgent","DownloadAgent","ScreeningAgent","ExtractionAgent RAG","WritingAgent","QualityAgent","ReviewSupervisor","Application"]
 def demo(level):
