@@ -33,9 +33,9 @@ Complétez le périmètre, le garde-fou et la langue :
 ```python
 def build_system_prompt() -> str:
     return (
-        "Tu es un assistant méthodologique spécialisé dans les SLR. "
-        "Tu dois rester centré sur ____________________. "
-        "Tu ne dois jamais inventer ____________________. "
+        "Tu es un expert en méthodologie de recherche académique, spécialisé dans la conduite de Revues Systématiques de la Littérature (SLR)."
+        "Tu doit strictement te limiter au périmètre __________________. "
+        "Tu ne dois jamais inventer ____________________. " 
         "Tu dois toujours répondre en ____________________."
     )
 ```
@@ -66,6 +66,8 @@ futur, interdire le JSON et imposer la numérotation `RQ1.`, `RQ2.`, etc.
 
 ### TODO 1.3 — Construire les messages
 
+# Cette partie nécessitel'étude du module "langchain_core.messages", notamment les classes SystemMessage, HumanMessage et AIMessage. 
+
 ```python
 return [
     SystemMessage(content=___),
@@ -77,6 +79,8 @@ Utilisez les deux fonctions précédentes. Les valeurs de `content` doivent êtr
 des résultats d'appels de fonction.
 
 ### TODO 1.4 — Effectuer un appel unique
+# ici vous avez besoin de regarder comment la méthode "invoke()" fonctionne. 
+
 
 ```python
 response = model.___(messages)
@@ -104,6 +108,7 @@ juste au-dessus. Retirez ensuite `raise NotImplementedError(...)`.
 ```bash
 python -m pytest -v
 python main.py
+ python -m streamlit run streamlit_app.py
 ```
 
 Résultat attendu après réalisation complète : `4 passed`.

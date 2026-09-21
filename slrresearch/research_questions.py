@@ -3,6 +3,7 @@ from time import perf_counter
 
 from langchain_core.messages import HumanMessage, SystemMessage
 
+#   Afin de réussir ce TD et de bien assimiler les concepts introduits, il est recommandé d’étudier le module "langchain_core.messages", notamment les classes SystemMessage, HumanMessage et AIMessage, ainsi que la méthode invoke(), qui constitue le mécanisme principal d’invocation des LLM.
 
 @dataclass
 class FreeTextQuestions:
@@ -28,20 +29,20 @@ def build_system_prompt() -> str:
 
 def build_user_prompt(topic: str) -> str:
     """TODO 1.2 — Construire un prompt zero-shot en cinq rubriques."""
-    clean = topic.strip()
-    if not clean:
+    clean_topic = topic.strip()
+    if not clean_topic:
         raise ValueError("Sujet vide")
     return f"""[OBJECTIF]
-TODO : indiquer l'action attendue.
+TODO : indiquer l'action attendue tout en insistant sur la pertinance et le focus.
 
 [CONTEXTE]
-TODO : expliquer l'usage futur des questions.
+TODO : expliquer l'usage futur des questions à générer.
 
 [ENTRÉE]
-Sujet de la revue : {clean}
+Sujet de la revue : {clean_topic}
 
 [CONTRAINTES]
-TODO : préciser le nombre, la nature et les interdictions.
+TODO : préciser le nombre et les caractéristiques des questions ainsi que les interdictions.
 
 [SORTIE ATTENDUE]
 TODO : préciser une liste RQ1., RQ2., etc., en texte libre."""
@@ -56,7 +57,7 @@ def build_zero_shot_messages(topic: str) -> list[SystemMessage | HumanMessage]:
     """TODO 1.3 — Construire [SystemMessage, HumanMessage]."""
     # Remplacer les deux chaînes par les appels aux fonctions précédentes.
     return [SystemMessage(content="..."), HumanMessage(content="...")]
-
+    
 
 def _observable_metadata(response) -> tuple[int | None, int | None, str | None]:
     usage = getattr(response, "usage_metadata", None) or {}
@@ -74,11 +75,11 @@ def generate_questions(model, topic: str, provider: str = "demo") -> FreeTextQue
     started = perf_counter()
 
     # TODO : remplacer None par UN appel model.invoke(messages).
-    response = None
+    response = None    # type de retour de invoke est AImessage
 
     latency = perf_counter() - started
     # TODO : lire et nettoyer response.content.
-    text = ""
+    text = "" # str(response.content).strip()
     input_tokens, output_tokens, finish_reason = _observable_metadata(response)
 
     # TODO : remplacer ce bloc par FreeTextQuestions(...) avec tous les champs.
