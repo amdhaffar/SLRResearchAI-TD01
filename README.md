@@ -1,4 +1,4 @@
-# SLRResearchAI — TD01 étudiant
+# SLRResearchAI — TD01
 
 1. Lisez `ENONCE_TD01.md`.
 2. Créez `.venv` et installez `requirements.txt`.
