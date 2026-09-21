@@ -79,7 +79,7 @@ def generate_questions(model, topic: str, provider: str = "demo") -> FreeTextQue
 
     latency = perf_counter() - started
     # TODO : lire et nettoyer response.content.
-    text = "" # str(response.content).strip()
+    text = "" 
     input_tokens, output_tokens, finish_reason = _observable_metadata(response)
 
     # TODO : remplacer ce bloc par FreeTextQuestions(...) avec tous les champs.
